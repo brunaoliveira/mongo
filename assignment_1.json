@@ -1,0 +1,38 @@
+db.patients.insertMany([
+    {
+        firstName: "Max",
+        lastName: "Schwarzmueller",
+        age: 29,
+        history: [
+            {disease: "cold", treatment: "tea and rest"},
+            {disease: "lice", treatment: "shave head"},
+            {disease: "broken hand", treatment: "6 weeks cast"}
+        ]
+    },
+    {
+        firstName: "Anna",
+        lastName: "Smith",
+        age: 19,
+        history: [
+            {disease: "cancer", treatment: "chemotherapy"}
+        ]
+    },
+    {
+        firstName: "Ben",
+        lastName: "Brown",
+        age: 59,
+        history: [
+            {disease: "cold", treatment: "tea and rest"},
+            {disease: "flu", treatment: "tea and tamiflu"},
+            {disease: "food poisoning", treatment: "liquids"}
+        ]
+    }
+])
+
+db.patients.updateOne({"firstName" : "Anna"}, {$set: {firstName: "Anna-Nicolle", age: 20, history: [
+            {disease: "lung cancer", treatment: "chemotherapy"}
+        ]}})
+
+db.patients.find({age: {$gt: 30}}).pretty()
+
+db.patients.deleteMany({"history.disease": "cold"})
