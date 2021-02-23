@@ -82,4 +82,9 @@ Prevent fetch of unecessary flightData
   db.passengers.find({}, {name: 1, _id: 0}).pretty()
   ```
   
-  
+ ## Resetting Database
+- Load database: ```use <database_name>``` 
+  - Drop all database: ```db.dropDatabase()```
+  - Drop single collection: ```db.<my_collection>.drop()```
+
+ 
